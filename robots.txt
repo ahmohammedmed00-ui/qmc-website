@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qmc-ksa.com/sitemap.xml
