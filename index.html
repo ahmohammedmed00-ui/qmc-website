@@ -1980,7 +1980,16 @@ var h=document.querySelector('header');if(h){var f=function(){h.style.paddingBlo
 }catch(e){}})();
 </script>
 <script>
-setInterval(function(){document.querySelectorAll('a,div,iframe,span').forEach(function(el){if((el.textContent||'').toLowerCase().includes('powered by netlify')){el.style.display='none';}});},1000);
+function hideBadge(){
+  document.querySelectorAll('*').forEach(function(el){
+    if(el.tagName==='SCRIPT'||el.tagName==='HTML'||el.tagName==='BODY'||el.tagName==='HEAD') return;
+    var h=(el.outerHTML||'').toLowerCase();
+    if(h.includes('netlify') && el.offsetHeight<120 && el.offsetWidth<300){
+      el.style.display='none';
+    }
+  });
+}
+setInterval(hideBadge,500);
 </script>
 </body>
 </html>
